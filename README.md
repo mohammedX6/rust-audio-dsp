@@ -6,7 +6,7 @@ A professional-grade audio workstation running entirely in your browser with stu
 
 ![Audio DSP](https://img.shields.io/badge/Rust-WASM-orange)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Performance](https://img.shields.io/badge/CPU-<1%25-green)
+
 
 ## ✨ Features
 
