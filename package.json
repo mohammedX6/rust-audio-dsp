@@ -1,0 +1,24 @@
+{
+  "name": "rust-audio-dsp",
+  "version": "1.0.0",
+  "description": "Real-time Audio DSP Processor with Rust + WebAssembly",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "build": "wasm-pack build --target web --release",
+    "dev": "wasm-pack build --target web && http-server -p 8000 -c-1"
+  },
+  "keywords": [
+    "rust",
+    "webassembly",
+    "audio",
+    "dsp",
+    "real-time",
+    "audio-effects"
+  ],
+  "author": "Mohammed Aljezawi",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
+

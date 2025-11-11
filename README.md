@@ -59,6 +59,7 @@ A professional-grade audio workstation running entirely in your browser with stu
 ### Prerequisites
 - [Rust](https://www.rust-lang.org/tools/install) 1.70+
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
+- [Node.js](https://nodejs.org/) 16+ (for local server)
 - Modern web browser (Chrome, Firefox, Edge)
 
 ### Installation
@@ -68,11 +69,16 @@ A professional-grade audio workstation running entirely in your browser with stu
 git clone https://github.com/mohammedX6/rust-audio-dsp.git
 cd rust-audio-dsp
 
+# Install dependencies (optional, for npm scripts)
+npm install
+
 # Build the WASM module
-wasm-pack build --target web --release
+npm run build
+# Or: wasm-pack build --target web --release
 
 # Start local server
-python3 -m http.server 8000
+npm start
+# Or: npx http-server -p 8000
 
 # Open browser
 open http://localhost:8000
