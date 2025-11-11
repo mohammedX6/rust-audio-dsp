@@ -57,7 +57,7 @@ A professional-grade audio workstation running entirely in your browser with stu
 ## 🚀 Quick Start
 
 ### Prerequisites
-- [Rust](https://www.rust-lang.org/tools/install) 1.70+
+- [Rust](https://www.rust-lang.org/tools/install) 1.70+ (installed via **rustup**)
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
 - [Node.js](https://nodejs.org/) 16+ (for local server)
 - Modern web browser (Chrome, Firefox, Edge)
@@ -65,24 +65,49 @@ A professional-grade audio workstation running entirely in your browser with stu
 ### Installation
 
 ```bash
-# Clone the repository
+# 1. Install Rust via rustup (official toolchain manager)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# 2. Add Rust to your PATH
+source $HOME/.cargo/env
+
+# 3. Install WASM target
+rustup target add wasm32-unknown-unknown
+
+# 4. Install wasm-pack
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+# 5. Clone the repository
 git clone https://github.com/mohammedX6/rust-audio-dsp.git
 cd rust-audio-dsp
 
-# Install dependencies (optional, for npm scripts)
+# 6. Install Node.js dependencies
 npm install
 
-# Build the WASM module
+# 7. Build the WASM module
 npm run build
-# Or: wasm-pack build --target web --release
 
-# Start local server
+# 8. Start local server
 npm start
-# Or: npx http-server -p 8000
 
-# Open browser
+# 9. Open browser
 open http://localhost:8000
 ```
+
+### ⚠️ Important: Rust Setup
+
+**This project requires `rustup` (the official Rust toolchain manager).** If you installed Rust via Homebrew, you may encounter errors. The npm scripts automatically source the Rust environment from `~/.cargo/env`.
+
+To verify your setup:
+```bash
+# Should output: /Users/YOUR_USERNAME/.cargo/bin/rustc
+which rustc
+
+# Should list: wasm32-unknown-unknown
+rustup target list --installed
+```
+
+If you have Rust via Homebrew, rustup will work alongside it. The `package.json` scripts are configured to use rustup's Rust installation.
 
 ## 🛠️ Development
 

@@ -4,8 +4,8 @@
   "description": "Real-time Audio DSP Processor with Rust + WebAssembly",
   "scripts": {
     "start": "http-server -p 8000 -c-1",
-    "build": "wasm-pack build --target web --release",
-    "dev": "wasm-pack build --target web && http-server -p 8000 -c-1"
+    "build": "source $HOME/.cargo/env && wasm-pack build --target web --release",
+    "dev": "source $HOME/.cargo/env && wasm-pack build --target web && http-server -p 8000 -c-1"
   },
   "keywords": [
     "rust",
