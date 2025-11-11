@@ -82,14 +82,20 @@ open http://localhost:8000
 
 ### Project Structure
 ```
-rust_wasm/
+rust-audio-dsp/
 ├── src/
 │   └── lib.rs          # Rust DSP implementation
-├── pkg/                # Compiled WASM output
+├── docs/               # Documentation
+│   ├── ARCHITECTURE.md
+│   ├── RUST_GUIDE.md
+│   ├── QUICK_REFERENCE.md
+│   └── ...
+├── pkg/                # Compiled WASM output (generated)
 ├── index.html          # UI
 ├── main.js             # Web Audio API integration
 ├── style.css           # Styling
-└── Cargo.toml          # Rust dependencies
+├── Cargo.toml          # Rust dependencies
+└── README.md           # This file
 ```
 
 ### Building
@@ -107,6 +113,16 @@ wasm-pack build --target web --release
 - **WebAssembly** - Near-native speed in browser
 - **Web Audio API** - Browser audio integration
 - **Canvas API** - Real-time visualizations
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the [`docs/`](docs/) folder:
+
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - System architecture and data flow
+- **[RUST_GUIDE.md](docs/RUST_GUIDE.md)** - Complete Rust implementation guide
+- **[QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)** - Quick command reference
+- **[DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)** - Documentation index
+- **[AUDIO_IMPROVEMENTS.md](docs/AUDIO_IMPROVEMENTS.md)** - Audio processing improvements
 
 ## 📖 How It Works
 
