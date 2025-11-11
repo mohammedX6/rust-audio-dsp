@@ -1,0 +1,21 @@
+# Rust
+target/
+Cargo.lock
+
+# WASM build output
+pkg/
+
+# Node modules (if using npm for serving)
+node_modules/
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+

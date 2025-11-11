@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Effects Processor | Rust + WASM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>🎵 Audio Effects Processor</h1>
+            <p class="subtitle">Real-Time DSP powered by Rust + WebAssembly</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content-grid">
+            <!-- Audio Visualizer Section -->
+            <section class="panel visualizer-panel">
+                <h2>📊 Real-Time Audio Visualizer</h2>
+                <p class="description">See your audio in stunning graphics</p>
+                
+                <div class="visualizer-controls">
+                    <div class="viz-buttons">
+                        <button id="vizWaveform" class="btn btn-viz active">🌊 Waveform</button>
+                        <button id="vizSpectrum" class="btn btn-viz">📊 Spectrum</button>
+                        <button id="vizBars" class="btn btn-viz">📈 Bars</button>
+                        <button id="vizCircle" class="btn btn-viz">⭕ Circle</button>
+                    </div>
+                    
+                    <canvas id="visualizer" width="800" height="300"></canvas>
+                    
+                    <div class="viz-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Peak Level:</span>
+                            <span class="stat-value" id="peakLevel">-∞ dB</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">RMS Level:</span>
+                            <span class="stat-value" id="rmsLevel">-∞ dB</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Frequency:</span>
+                            <span class="stat-value" id="dominantFreq">-- Hz</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Audio DSP Calls:</span>
+                            <span class="stat-value" id="audioCallbacks">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Buffer Size:</span>
+                            <span class="stat-value" id="bufferSize">-- samples</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Data per Call:</span>
+                            <span class="stat-value" id="dataPerCall">-- KB</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Data Processed:</span>
+                            <span class="stat-value" id="totalData">0 MB</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Sample Rate:</span>
+                            <span class="stat-value" id="sampleRate">-- Hz</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Processing Speed:</span>
+                            <span class="stat-value" id="processingSpeed">--x realtime</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio Processor Section -->
+            <section class="panel audio-panel">
+                <h2>🎛️ Audio Effects</h2>
+                <p class="description">Process audio in real-time with high-performance DSP</p>
+                
+                <div class="audio-controls">
+                    <!-- Audio Controls -->
+                    <div class="control-section">
+                        <h3>🎤 Audio Source</h3>
+                        <div class="button-row">
+                            <button id="startBtn" class="btn btn-primary btn-large">▶️ Start Audio</button>
+                            <button id="stopBtn" class="btn btn-danger btn-large" disabled>⏹️ Stop</button>
+                        </div>
+                        <div class="status" id="audioStatus">Click "Start Audio" to begin</div>
+                        <p class="hint">💡 Grant microphone permission when prompted</p>
+                    </div>
+
+                    <!-- Effects Section -->
+                    <div class="effects-section">
+                        <h3>🎚️ Effects Controls</h3>
+                        
+                        <!-- Volume -->
+                        <div class="control-group" data-tooltip="Adjust overall volume. 1.0 = original level, 2.0 = double volume">
+                            <label for="gainSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">🔊</span>
+                                    Volume
+                                    <span class="help-icon" title="Adjust overall volume. 1.0 = original level, 2.0 = double volume">?</span>
+                                </span>
+                                <span class="control-value" id="gainValue">1.00</span>
+                            </label>
+                            <input type="range" id="gainSlider" min="0" max="200" value="100" class="slider">
+                            <div class="control-hint">Normal: 1.0 | Boost: 1.5-2.0</div>
+                        </div>
+
+                        <!-- Low-Pass Filter -->
+                        <div class="control-group" data-tooltip="Remove high frequencies. Lower = more muffled/darker sound">
+                            <label for="lpfSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">🔽</span>
+                                    Low-Pass Filter
+                                    <span class="help-icon" title="Remove high frequencies. Lower = more muffled/darker sound">?</span>
+                                </span>
+                                <span class="control-value" id="lpfValue">20000 Hz</span>
+                            </label>
+                            <input type="range" id="lpfSlider" min="100" max="20000" value="20000" class="slider">
+                            <div class="control-hint">Try: 5000 Hz for telephone effect | 500 Hz for radio effect</div>
+                        </div>
+
+                        <!-- High-Pass Filter -->
+                        <div class="control-group" data-tooltip="Remove low frequencies. Higher = thinner sound, less bass">
+                            <label for="hpfSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">🔼</span>
+                                    High-Pass Filter
+                                    <span class="help-icon" title="Remove low frequencies. Higher = thinner sound, less bass">?</span>
+                                </span>
+                                <span class="control-value" id="hpfValue">20 Hz</span>
+                            </label>
+                            <input type="range" id="hpfSlider" min="20" max="5000" value="20" class="slider">
+                            <div class="control-hint">Try: 200 Hz for thin sound | 1000 Hz for tinny effect</div>
+                        </div>
+
+                        <!-- Distortion -->
+                        <div class="control-group" data-tooltip="Add harmonic distortion for crunchy, fuzzy sound">
+                            <label for="distortionSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">⚡</span>
+                                    Distortion
+                                    <span class="help-icon" title="Add harmonic distortion for crunchy, fuzzy sound">?</span>
+                                </span>
+                                <span class="control-value" id="distortionValue">0.00</span>
+                            </label>
+                            <input type="range" id="distortionSlider" min="0" max="100" value="0" class="slider">
+                            <div class="control-hint">Try: 0.3 for warmth | 0.7 for heavy distortion</div>
+                        </div>
+
+                        <!-- Echo Time -->
+                        <div class="control-group" data-tooltip="Delay time between echoes in milliseconds">
+                            <label for="delayTimeSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">⏱️</span>
+                                    Echo Time
+                                    <span class="help-icon" title="Delay time between echoes in milliseconds">?</span>
+                                </span>
+                                <span class="control-value" id="delayTimeValue">0 ms</span>
+                            </label>
+                            <input type="range" id="delayTimeSlider" min="0" max="1000" value="0" class="slider">
+                            <div class="control-hint">Try: 250ms for slapback | 500ms for spacious echo</div>
+                        </div>
+
+                        <!-- Echo Feedback -->
+                        <div class="control-group" data-tooltip="How many times the echo repeats. Higher = more repetitions">
+                            <label for="delayFeedbackSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">🔁</span>
+                                    Echo Repeats
+                                    <span class="help-icon" title="How many times the echo repeats. Higher = more repetitions">?</span>
+                                </span>
+                                <span class="control-value" id="delayFeedbackValue">0.00</span>
+                            </label>
+                            <input type="range" id="delayFeedbackSlider" min="0" max="90" value="0" class="slider">
+                            <div class="control-hint">Try: 0.3 for subtle | 0.6 for dramatic echoes</div>
+                        </div>
+
+                        <!-- Echo Mix -->
+                        <div class="control-group" data-tooltip="Blend between dry (original) and wet (echo) signal">
+                            <label for="delayMixSlider">
+                                <span class="control-label">
+                                    <span class="label-icon">🎚️</span>
+                                    Echo Mix
+                                    <span class="help-icon" title="Blend between dry (original) and wet (echo) signal">?</span>
+                                </span>
+                                <span class="control-value" id="delayMixValue">0.00</span>
+                            </label>
+                            <input type="range" id="delayMixSlider" min="0" max="100" value="0" class="slider">
+                            <div class="control-hint">0 = dry only | 0.5 = balanced | 1.0 = echo only</div>
+                        </div>
+                    </div>
+
+                    <!-- Preset Buttons -->
+                    <div class="preset-section">
+                        <h3>🎨 Effect Presets</h3>
+                        <div class="preset-buttons">
+                            <button class="btn btn-preset" data-preset="clean">✨ Clean</button>
+                            <button class="btn btn-preset" data-preset="podcast">🎙️ Podcast</button>
+                            <button class="btn btn-preset" data-preset="telephone">📞 Telephone</button>
+                            <button class="btn btn-preset" data-preset="radio">📻 Radio</button>
+                            <button class="btn btn-preset" data-preset="walkietalkie">📡 Walkie-Talkie</button>
+                            <button class="btn btn-preset" data-preset="robot">🤖 Robot</button>
+                            <button class="btn btn-preset" data-preset="alien">👽 Alien</button>
+                            <button class="btn btn-preset" data-preset="ghost">👻 Ghost</button>
+                            <button class="btn btn-preset" data-preset="underwater">🌊 Underwater</button>
+                            <button class="btn btn-preset" data-preset="cave">🏔️ Cave</button>
+                            <button class="btn btn-preset" data-preset="valley">🏞️ Valley</button>
+                            <button class="btn btn-preset" data-preset="stadium">🎤 Stadium</button>
+                            <button class="btn btn-preset" data-preset="concerthall">🎸 Concert Hall</button>
+                            <button class="btn btn-preset" data-preset="space">🌌 Space</button>
+                            <button class="btn btn-preset" data-preset="psychedelic">🌀 Psychedelic</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🦀 Powered by Rust + WebAssembly for maximum performance</p>
+            <p class="tech-stack">Real-time audio processing with zero latency</p>
+        </footer>
+    </div>
+
+    <!-- Load WASM and JavaScript -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
+
