@@ -65,8 +65,8 @@ A professional-grade audio workstation running entirely in your browser with stu
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/rust_wasm.git
-cd rust_wasm
+git clone https://github.com/mohammedX6/rust-audio-dsp.git
+cd rust-audio-dsp
 
 # Build the WASM module
 wasm-pack build --target web --release
@@ -185,7 +185,9 @@ MIT License - see LICENSE file for details
 
 ## 📧 Contact
 
-Created by [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+Created by [@mohammedX6](https://github.com/mohammedX6)  
+Mohammed Aljezawi - Software Engineer  
+Irbid, Jordan 🇯🇴
 
 ---
 
