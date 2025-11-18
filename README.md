@@ -8,16 +8,19 @@ A professional-grade audio workstation running entirely in your browser with stu
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 
-## ✨ Features
+Algorithms used from: https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html
 
-### 🎛️ **Audio Effects**
+
+## Features
+
+###  **Audio Effects**
 - **Gain Control** - Volume adjustment
 - **Low-Pass Filter** - Remove high frequencies
 - **High-Pass Filter** - Remove low frequencies  
 - **Distortion** - Warm analog-style saturation
 - **Delay/Echo** - Time-based effects with feedback
 
-### 🎨 **15 Professional Presets**
+###  **15 Professional Presets**
 1. ✨ Clean - Pure audio
 2. 🎙️ Podcast - Broadcast quality
 3. 📞 Telephone - Vintage phone
@@ -34,7 +37,7 @@ A professional-grade audio workstation running entirely in your browser with stu
 14. 🌌 Space - Cosmic ambience
 15. 🌀 Psychedelic - Trippy swirling
 
-### 📊 **Real-Time Visualizations**
+###  **Real-Time Visualizations**
 - **4 Visualization Modes:**
   - 🌊 Waveform - Oscilloscope view
   - 📊 Spectrum - Frequency analyzer
@@ -48,13 +51,13 @@ A professional-grade audio workstation running entirely in your browser with stu
   - Processing speed metrics
   - Total data processed
 
-### ⚡ **Performance**
+###  **Performance**
 - **< 1% CPU usage** - Incredibly efficient
 - **170x faster than realtime** - Rust power!
 - **Zero latency** - Instant processing
 - **Clean audio** - No background noise
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - [Rust](https://www.rust-lang.org/tools/install) 1.70+ (installed via **rustup**)
@@ -94,7 +97,7 @@ npm start
 open http://localhost:8000
 ```
 
-### ⚠️ Important: Rust Setup
+###  Important: Rust Setup
 
 **This project requires `rustup` (the official Rust toolchain manager).** If you installed Rust via Homebrew, you may encounter errors. The npm scripts automatically source the Rust environment from `~/.cargo/env`.
 
@@ -109,7 +112,7 @@ rustup target list --installed
 
 If you have Rust via Homebrew, rustup will work alongside it. The `package.json` scripts are configured to use rustup's Rust installation.
 
-## 🛠️ Development
+##  Development
 
 ### Project Structure
 ```
@@ -145,7 +148,7 @@ wasm-pack build --target web --release
 - **Web Audio API** - Browser audio integration
 - **Canvas API** - Real-time visualizations
 
-## 📚 Documentation
+##  Documentation
 
 Comprehensive documentation is available in the [`docs/`](docs/) folder:
 
@@ -155,7 +158,7 @@ Comprehensive documentation is available in the [`docs/`](docs/) folder:
 - **[DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)** - Documentation index
 - **[AUDIO_IMPROVEMENTS.md](docs/AUDIO_IMPROVEMENTS.md)** - Audio processing improvements
 
-## 📖 How It Works
+##  How It Works
 
 ### Audio Signal Flow
 ```
@@ -182,7 +185,7 @@ Speakers
 - **Memory:** ~192 KB for Rust processor
 - **Data Rate:** 192 KB/sec uncompressed
 
-## 🎯 Usage Tips
+##  Usage Tips
 
 ### Best Results
 1. **Use headphones** - Prevents feedback
@@ -197,7 +200,7 @@ Speakers
 - **Haunted:** Ghost + Cave reverb
 - **Retro Game:** Robot + Short delay
 
-## 📊 Technical Details
+##  Technical Details
 
 ### Rust Implementation
 - Zero-copy buffer processing
@@ -211,7 +214,7 @@ Speakers
 - Performance monitoring
 - Browser noise suppression
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Feel free to:
 - Add new effects
@@ -220,21 +223,17 @@ Contributions are welcome! Feel free to:
 - Fix bugs
 - Improve documentation
 
-## 📝 License
+##  License
 
 MIT License - see LICENSE file for details
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with [Rust](https://www.rust-lang.org/)
 - Powered by [WebAssembly](https://webassembly.org/)
 - Audio processing via [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 
-## 📧 Contact
 
-Created by [@mohammedX6](https://github.com/mohammedX6)  
-Mohammed Aljezawi - Software Engineer  
-Irbid, Jordan 🇯🇴
 
 ---
 
