@@ -1,4 +1,4 @@
-# 🎵 Audio DSP Processor
+#  Audio DSP Processor
 
 **Real-time audio effects processor powered by Rust + WebAssembly**
 
@@ -232,11 +232,3 @@ MIT License - see LICENSE file for details
 - Built with [Rust](https://www.rust-lang.org/)
 - Powered by [WebAssembly](https://webassembly.org/)
 - Audio processing via [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
-
-
-
----
-
-**⭐ Star this repo if you find it useful!**
-
-Made with 🦀 Rust and ❤️
