@@ -1,6 +1,6 @@
 # Rust + WASM Cheat Sheet & Implementation Guide
 
-## 📚 Table of Contents
+## Table of Contents
 1. [The Stack - What Technologies Are We Using?](#the-stack)
 2. [How Everything Connects](#how-everything-connects)
 3. [Reading the Rust Code](#reading-the-rust-code)
@@ -9,7 +9,7 @@
 
 ---
 
-## 🏗️ The Stack - What Technologies Are We Using?
+## The Stack - What Technologies Are We Using?
 
 ### **Frontend Layer (What Users See)**
 ```
@@ -53,7 +53,7 @@
 
 ---
 
-## 🔗 How Everything Connects
+## How Everything Connects
 
 ### **1. Build Process Flow**
 
@@ -137,7 +137,7 @@ Rust: Create AudioProcessor instance
 
 ---
 
-## 📖 Reading the Rust Code
+## Reading the Rust Code
 
 ### **File Structure: `src/lib.rs`**
 
@@ -258,7 +258,7 @@ pub fn calculate_lowpass_coeffs(
 
 ---
 
-## 🎯 Rust Syntax Cheat Sheet
+## Rust Syntax Cheat Sheet
 
 ### **Variables**
 
@@ -385,7 +385,7 @@ x.ceil();               // Round up
 
 ---
 
-## 🌐 WASM-Specific Concepts
+## WASM-Specific Concepts
 
 ### **1. The `#[wasm_bindgen]` Attribute**
 
@@ -494,7 +494,7 @@ pub fn get_data_ptr(&self) -> *const f32 {
 
 ---
 
-## 🎓 How to Read Our Implementation
+## How to Read Our Implementation
 
 ### **Audio DSP Algorithm Example**
 
@@ -574,7 +574,7 @@ pub fn process(&mut self, buffer: &mut [f32], /* ... params */) {
 
 ---
 
-## 🚀 Quick Reference
+## Quick Reference
 
 ### **Common Patterns in Our Code**
 
@@ -616,7 +616,7 @@ debug_assert!(x > 0.0);  // Only in debug builds
 
 ---
 
-## 📚 Next Steps
+## Next Steps
 
 1. **Experiment**: Modify parameters in the Rust code
 2. **Add features**: Try implementing new DSP effects
@@ -630,5 +630,5 @@ debug_assert!(x > 0.0);  // Only in debug builds
 - WASM is about **speed** (near-native performance)
 - Together they make **reliable, fast web apps**!
 
-Happy coding! 🦀⚡
+Happy coding! 
 

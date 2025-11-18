@@ -1,4 +1,4 @@
-#  Audio DSP Processor
+# Audio DSP Processor
 
 **Real-time audio effects processor powered by Rust + WebAssembly**
 
@@ -13,36 +13,36 @@ Algorithms used from: https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cook
 
 ## Features
 
-###  **Audio Effects**
+### **Audio Effects**
 - **Gain Control** - Volume adjustment
 - **Low-Pass Filter** - Remove high frequencies
 - **High-Pass Filter** - Remove low frequencies  
 - **Distortion** - Warm analog-style saturation
 - **Delay/Echo** - Time-based effects with feedback
 
-###  **15 Professional Presets**
-1. ✨ Clean - Pure audio
-2. 🎙️ Podcast - Broadcast quality
-3. 📞 Telephone - Vintage phone
-4. 📻 Radio - AM radio effect
-5. 📡 Walkie-Talkie - Two-way radio
-6. 🤖 Robot - Robotic voice
-7. 👽 Alien - Extraterrestrial
-8. 👻 Ghost - Spooky effect
-9. 🌊 Underwater - Submerged sound
-10. 🏔️ Cave - Indoor reverb
-11. 🏞️ Valley - Long dramatic echo
-12. 🎤 Stadium - Sports arena
-13. 🎸 Concert Hall - Live performance
-14. 🌌 Space - Cosmic ambience
-15. 🌀 Psychedelic - Trippy swirling
+### **15 Professional Presets**
+1. Clean - Pure audio
+2. Podcast - Broadcast quality
+3. Telephone - Vintage phone
+4. Radio - AM radio effect
+5. Walkie-Talkie - Two-way radio
+6. Robot - Robotic voice
+7. Alien - Extraterrestrial
+8. Ghost - Spooky effect
+9. Underwater - Submerged sound
+10. Cave - Indoor reverb
+11. Valley - Long dramatic echo
+12. Stadium - Sports arena
+13. Concert Hall - Live performance
+14. Space - Cosmic ambience
+15. Psychedelic - Trippy swirling
 
-###  **Real-Time Visualizations**
+### **Real-Time Visualizations**
 - **4 Visualization Modes:**
-  - 🌊 Waveform - Oscilloscope view
-  - 📊 Spectrum - Frequency analyzer
-  - 📈 Bars - Frequency bars
-  - ⭕ Circle - Circular waveform
+  - Waveform - Oscilloscope view
+  - Spectrum - Frequency analyzer
+  - Bars - Frequency bars
+  - Circle - Circular waveform
 
 - **Live Audio Stats:**
   - Peak & RMS levels
@@ -51,13 +51,13 @@ Algorithms used from: https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cook
   - Processing speed metrics
   - Total data processed
 
-###  **Performance**
+### **Performance**
 - **< 1% CPU usage** - Incredibly efficient
 - **170x faster than realtime** - Rust power!
 - **Zero latency** - Instant processing
 - **Clean audio** - No background noise
 
-##  Quick Start
+## Quick Start
 
 ### Prerequisites
 - [Rust](https://www.rust-lang.org/tools/install) 1.70+ (installed via **rustup**)
@@ -97,7 +97,7 @@ npm start
 open http://localhost:8000
 ```
 
-###  Important: Rust Setup
+### Important: Rust Setup
 
 **This project requires `rustup` (the official Rust toolchain manager).** If you installed Rust via Homebrew, you may encounter errors. The npm scripts automatically source the Rust environment from `~/.cargo/env`.
 
@@ -112,7 +112,7 @@ rustup target list --installed
 
 If you have Rust via Homebrew, rustup will work alongside it. The `package.json` scripts are configured to use rustup's Rust installation.
 
-##  Development
+## Development
 
 ### Project Structure
 ```
@@ -148,7 +148,7 @@ wasm-pack build --target web --release
 - **Web Audio API** - Browser audio integration
 - **Canvas API** - Real-time visualizations
 
-##  Documentation
+## Documentation
 
 Comprehensive documentation is available in the [`docs/`](docs/) folder:
 
@@ -158,7 +158,7 @@ Comprehensive documentation is available in the [`docs/`](docs/) folder:
 - **[DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)** - Documentation index
 - **[AUDIO_IMPROVEMENTS.md](docs/AUDIO_IMPROVEMENTS.md)** - Audio processing improvements
 
-##  How It Works
+## How It Works
 
 ### Audio Signal Flow
 ```
@@ -185,7 +185,7 @@ Speakers
 - **Memory:** ~192 KB for Rust processor
 - **Data Rate:** 192 KB/sec uncompressed
 
-##  Usage Tips
+## Usage Tips
 
 ### Best Results
 1. **Use headphones** - Prevents feedback
@@ -200,7 +200,7 @@ Speakers
 - **Haunted:** Ghost + Cave reverb
 - **Retro Game:** Robot + Short delay
 
-##  Technical Details
+## Technical Details
 
 ### Rust Implementation
 - Zero-copy buffer processing
@@ -214,7 +214,7 @@ Speakers
 - Performance monitoring
 - Browser noise suppression
 
-##  Contributing
+## Contributing
 
 Contributions are welcome! Feel free to:
 - Add new effects
@@ -223,11 +223,11 @@ Contributions are welcome! Feel free to:
 - Fix bugs
 - Improve documentation
 
-##  License
+## License
 
 MIT License - see LICENSE file for details
 
-##  Acknowledgments
+## Acknowledgments
 
 - Built with [Rust](https://www.rust-lang.org/)
 - Powered by [WebAssembly](https://webassembly.org/)

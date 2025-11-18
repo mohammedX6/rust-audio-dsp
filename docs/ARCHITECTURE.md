@@ -1,6 +1,6 @@
 # Architecture & Code Flow Diagrams
 
-## 🏛️ System Architecture
+## System Architecture
 
 ### **Three-Layer Architecture**
 
@@ -16,7 +16,7 @@
 │  │  • Display   │  │  • Colors    │  │              │    │
 │  └──────────────┘  └──────────────┘  └──────────────┘    │
 └─────────────────────────────────────────────────────────────┘
-                          ↕️
+                          ↕
 ┌─────────────────────────────────────────────────────────────┐
 │                     APPLICATION LAYER                       │
 │                                                             │
@@ -30,7 +30,7 @@
 │  │  • Type conversion (JS ↔ WASM)                      │  │
 │  └──────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────┘
-                          ↕️
+                          ↕
 ┌─────────────────────────────────────────────────────────────┐
 │                     COMPUTATION LAYER                       │
 │                                                             │
@@ -48,7 +48,7 @@
 
 ---
 
-## 🔄 Complete Data Flow
+## Complete Data Flow
 
 ### **Audio Processing Pipeline**
 
@@ -137,7 +137,7 @@
 │                          ↓                                       │
 │  ┌────────────────────────────────────────────────────────┐    │
 │  │  6. Web Audio API sends buffer to speakers            │    │
-│  │     User hears the processed audio! 🔊                │    │
+│  │     User hears the processed audio!                 │    │
 │  └────────────────────────────────────────────────────────┘    │
 │                          ↓                                       │
 │                    Loop repeats...                              │
@@ -146,7 +146,7 @@
 
 ---
 
-## 🎛️ Audio Processing Details
+## Audio Processing Details
 
 ### **Inside the `process()` Method**
 
@@ -227,7 +227,7 @@ Output: buffer = [processed0, processed1, ..., processed4095]
 
 ---
 
-## 🎲 Monte Carlo Simulation Flow
+## Monte Carlo Simulation Flow
 
 ```
 User clicks "Run Simulation"
@@ -267,7 +267,7 @@ JavaScript: Update UI with results
 
 ---
 
-## 🌊 Wave Simulation Flow
+## Wave Simulation Flow
 
 ```
 User clicks "Start Simulation"
@@ -328,7 +328,7 @@ Wave starts propagating!
 
 ---
 
-## 🔧 Build Process Detailed
+## Build Process Detailed
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -397,7 +397,7 @@ Wave starts propagating!
 
 ---
 
-## 🧠 Memory Model
+## Memory Model
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -450,7 +450,7 @@ Key Points:
 
 ---
 
-## 📊 Performance Comparison
+## Performance Comparison
 
 ```
 Task: Process 10 million random numbers
@@ -465,7 +465,7 @@ Task: Process 10 million random numbers
 │  ████ 25ms                                          │
 └─────────────────────────────────────────────────────┘
 
-10x faster! ⚡
+10x faster! 
 
 Why?
 • WASM is compiled ahead of time
@@ -478,9 +478,9 @@ Why?
 ---
 
 This architecture enables:
-- ✅ **Real-time audio processing** (low latency)
-- ✅ **Fast simulations** (10x+ faster than pure JS)
-- ✅ **Memory safety** (no segfaults, no memory leaks)
-- ✅ **Portable** (runs in any modern browser)
-- ✅ **Maintainable** (clear separation of concerns)
+- **Real-time audio processing** (low latency)
+- **Fast simulations** (10x+ faster than pure JS)
+- **Memory safety** (no segfaults, no memory leaks)
+- **Portable** (runs in any modern browser)
+- **Maintainable** (clear separation of concerns)
 
