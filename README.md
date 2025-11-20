@@ -10,6 +10,7 @@ A professional-grade audio workstation running entirely in your browser with stu
 
 Algorithms used from: https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html
 
+You can try it from here: https://mohammedx6.github.io/rust-audio-dsp/
 
 ## Features
 
